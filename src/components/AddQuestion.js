@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Paper, MenuItem } from '@mui/material';
 
-const AddQuestion = () => {
+const AddQuestion = ({addQuestion}) => {
 
     const difficulties = ['Easy', 'Medium', 'Hard'];
     const statuses = ['Not Attempted', 'Revise', 'Done'];
@@ -49,7 +49,10 @@ const AddQuestion = () => {
         if (errors.url || errors.name)
             alert('Please fill all required fields');
         else
-            console.log('formData ', state);
+        {   
+            addQuestion(state);
+            setState(initialState);
+        }
     }
 
     return (
@@ -64,6 +67,7 @@ const AddQuestion = () => {
                         variant="outlined"
                         placeholder="e.g - https://leetcode.com/problems/basic-calculator-ii/"
                         fullWidth
+                        value={state.url}
                         onChange={handleUrlChange}
                         required
                         size="small"
