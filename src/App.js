@@ -1,28 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import * as React from 'react';
-import ReactDOM from 'react-dom';
-import Button from '@mui/material/Button';
+import React from 'react';
+import { Container, Grid } from '@mui/material';
+import AddQuestion from './components/AddQuestion';
+import List from './components/List';
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="contained">Hello World</Button>;
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-    </div>
+    <Container className="App" maxWidth="md">
+      {/* <Grid container sx={{border:'1px solid green'}}> */}
+        <AddQuestion />
+        <List />
+      {/* </Grid> */}
+    </Container>
   );
 }
 
