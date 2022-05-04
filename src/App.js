@@ -47,6 +47,7 @@ function App() {
     <Container className="App" maxWidth="md">
       <AddQuestion addQuestion={addQuestion} />
       <List questions={list} />
+      <button onClick={()=>console.log('Array', list)}>List</button>
     </Container>
   );
 }

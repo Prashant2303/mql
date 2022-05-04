@@ -54,7 +54,7 @@ const Question = ({ question }) => {
             </Grid>
             {
                 showNotes && <Grid item xs={12}>
-                    <EditNote currentNotes={question.notes} />
+                    <EditNote question={question} />
                 </Grid>
             }
         </Grid>

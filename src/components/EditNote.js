@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Grid, TextField } from '@mui/material';
 
-const EditNote = ({ currentNotes }) => {
-    const handleSubmit = (e) => {
-        console.log('Note', e.target.value);
+const EditNote = ({ question }) => {
+    const [note, setNote] = useState(question.notes);
+    const handleChange = (e) => {
+        setNote(e.target.value);
+    }
+    const handleSubmit = () => {
+        question.notes = note;
+        console.log('Note', note);
     }
     return (
         <Grid container justifyContent="flex-end">
@@ -12,7 +17,8 @@ const EditNote = ({ currentNotes }) => {
                 placeholder="Add Notes"
                 multiline
                 fullWidth
-                value={currentNotes}
+                onChange={handleChange}
+                value={note}
             />
             <Button variant="contained" disableElevation type="submit" onClick={handleSubmit} sx={{ marginTop: '10px' }}>Save</Button>
         </Grid>
