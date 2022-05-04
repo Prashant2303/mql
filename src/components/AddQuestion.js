@@ -4,7 +4,7 @@ import { Grid, TextField, Button, Paper, MenuItem } from '@mui/material';
 const AddQuestion = ({addQuestion}) => {
 
     const difficulties = ['Easy', 'Medium', 'Hard'];
-    const statuses = ['Not Attempted', 'Revise', 'Done'];
+    const statuses = ['Todo', 'Revise', 'Done'];
     const initialState = {
         'url': '',
         'site': '',
@@ -99,7 +99,7 @@ const AddQuestion = ({addQuestion}) => {
                         value={state.difficulty}
                         onChange={handleChange}
                         fullWidth
-                        // margin="normal"
+                        required
                         size="small"
                     >
                         {difficulties.map((option) => (
@@ -118,7 +118,7 @@ const AddQuestion = ({addQuestion}) => {
                         value={state.status}
                         onChange={handleChange}
                         fullWidth
-                        // margin="normal"
+                        required
                         size="small"
                     >
                         {statuses.map((option) => (
