@@ -8,7 +8,6 @@ const EditNote = ({ question }) => {
     }
     const handleSubmit = () => {
         question.notes = note;
-        console.log('Note', note);
     }
     return (
         <Grid container justifyContent="flex-end">

@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useState } from 'react';
 import { Grid, TextField, Button, MenuItem } from '@mui/material';
 import EditNote from './EditNote';

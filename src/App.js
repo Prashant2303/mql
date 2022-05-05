@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Container } from '@mui/material';
 import AddQuestion from './components/AddQuestion';
 import List from './components/List';
-
+import PrimarySearchAppBar from './components/AppBar';
+import { v4 as uuidv4 } from 'uuid';
 function App() {
 
   let questions = [
@@ -39,12 +40,15 @@ function App() {
   const [list, setList] = useState(questions);
 
   const addQuestion = (question) => {
-    question.id = questions.length + 1;
+    question.id = uuidv4();
+    question.date = new Date();
+    console.log(question);
     setList([question, ...list]);
   }
 
   return (
     <Container className="App" maxWidth="md">
+      <PrimarySearchAppBar />
       <AddQuestion addQuestion={addQuestion} />
       <List questions={list} />
       <button onClick={()=>console.log('Array', list)}>List</button>
