@@ -32,6 +32,10 @@ const AddQuestion = ({addQuestion}) => {
                 site: url.hostname
             });
         } catch (err) {
+            setState({
+                ...state,
+                url: e.target.value
+            })
             setErrors({ ...errors, [e.target.name]: true })
         }
     }
