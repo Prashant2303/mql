@@ -18,7 +18,7 @@ export async function getStaticPaths() {
     }))
     return {
         paths,
-        fallback: false
+        fallback: true
     }
 }
 
@@ -35,6 +35,6 @@ export async function getStaticProps({ params }: Params) {
 
     return {
         props: list,
-        revalidate: 60
+        revalidate: 60,
     }
 }
