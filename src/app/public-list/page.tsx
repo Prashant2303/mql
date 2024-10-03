@@ -1,7 +1,4 @@
-// 'use client'
-// import { useState } from "react"
-
-export const base_url = 'https://my-question-list.onrender.com/api';
+import { base_url } from "@/helper";
 
 type Question = {
     _id: string,
@@ -13,7 +10,6 @@ type Question = {
 }
 
 export default async function PublicLists() {
-    // const [state, setState] = useState(0);
     const res = await fetch(`${base_url}/public-lists`);
     const data: Question[] = await res.json();
     // console.log(data);
@@ -21,7 +17,5 @@ export default async function PublicLists() {
     return <div>
         <h1>Public Lists</h1>
         {data.map(question => <div key={question._id}>{question.name}</div>)}
-        {/* {state}
-        <button onClick={() => setState(state + 1)}>Click Me</button> */}
     </div>
 }
