@@ -1,31 +1,9 @@
+import { base_url } from "@/helper";
+import { List } from "@/types";
 import Link from "next/link";
 
-export const base_url = 'https://my-question-list.onrender.com/api';
-
-export type List = {
-    _id: string,
-    ownerId: string,
-    name: string,
-    access: string,
-    ownerName: string,
-    likes: number,
-    questions: Question[]
-}
-
-type Question = {
-    url: string
-    site: string
-    name: string
-    difficulty: string
-    status: string
-    category: string
-    notes: string
-    id: string
-    date: string
-}
-
 export default function PublicLists({ lists }: { lists: List[] }) {
-    console.log('LISTS', lists);
+    // console.log('LISTS', lists);
 
     return <div>
         <h1>Page Router</h1>

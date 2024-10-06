@@ -1,21 +1,20 @@
 import { base_url } from "@/helper";
+import { List } from "@/types";
+import Link from "next/link";
+import styles from "./page.module.css";
 
-type Question = {
-    _id: string,
-    ownerId: string,
-    name: string,
-    access: string,
-    ownerName: string,
-    likes: number
-}
+export const revalidate = 60;
 
 export default async function PublicLists() {
     const res = await fetch(`${base_url}/public-lists`);
-    const data: Question[] = await res.json();
-    // console.log(data);
+    const lists: List[] = await res.json();
+    console.log('Public Lists', lists);
 
     return <div>
         <h1>Public Lists</h1>
-        {data.map(question => <div key={question._id}>{question.name}</div>)}
+        {lists.map(list => <div key={list._id}><Link className={styles.link} href={`/public-list/${list._id}`}>
+            {list.name}
+        </Link>
+        </div>)}
     </div>
 }

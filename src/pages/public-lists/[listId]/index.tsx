@@ -1,4 +1,5 @@
-import { base_url, List } from "..";
+import { base_url } from "@/helper";
+import { List } from "@/types";
 
 export default function PublicList(list: List) {
     console.log('CLIENT', list.questions.length);
