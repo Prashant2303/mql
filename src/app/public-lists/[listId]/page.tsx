@@ -4,8 +4,11 @@ import { PublicListClient } from "./_components/PublicList";
 
 export const revalidate = 60;
 
-export default async function PublicList({ params }: { params: { listId: string } }) {
-    const url = `${base_url}/public-lists/${params.listId}`;
+type Params = Promise<{ listId: string }>
+
+export default async function PublicList({ params }: { params: Params }) {
+    const { listId } = await params;
+    const url = `${base_url}/public-lists/${listId}`;
     console.log(`HTTP request made to ${url}`);
     const res = await fetch(url);
     const list: List = await res.json();
