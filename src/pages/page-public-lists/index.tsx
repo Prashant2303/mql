@@ -1,4 +1,4 @@
-import { base_url } from "@/helper";
+import { base_url } from "@/helpers";
 import { List } from "@/types";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ export default function PublicLists({ lists }: { lists: List[] }) {
         <h1>Page Router</h1>
         <h2>Public List</h2>
         {lists.map(list => <div key={list._id}>
-            <Link href={`/public-lists/${encodeURIComponent(list._id)}`}>
+            <Link href={`/page-public-lists/${encodeURIComponent(list._id)}`}>
                 {list.name}
             </Link>
         </div>)}

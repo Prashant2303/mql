@@ -1,4 +1,4 @@
-import { base_url } from "@/helper";
+import { base_url } from "@/helpers";
 import { List } from "@/types";
 
 export default function PublicList(list: List) {
